@@ -1,0 +1,78 @@
+#include<stdio.h>
+#include<stdlib.h>
+int n,ch,stack[5],top=-1,i;
+void menu();
+void Push()
+{
+   int a;
+   printf("Enter the element to be inserted:");
+   scanf("%d",&a);
+   if(top!=5)
+   {
+     top=top+1;
+     stack[top]=a;
+     printf("Inserted successfully\nelements are:");
+     for(i=top;i>-1;i--)
+        printf("\t%d",stack[i]);
+   }
+   else
+     printf("Overflow");
+   menu();
+}
+void Pop()
+{
+   int item;
+   if(top==-1)
+      printf("Stack is empty");
+   else
+   {
+      item=stack[top];
+      top=top-1;
+      printf("Deletion successfull\nStack elements after deletion is:");
+      for(i=top;i>-1;i--)
+        printf("\t%d",stack[i]);
+    }
+    menu();
+}
+void peek()
+{
+    printf("The top element is %d",stack[top]);
+    menu();
+}
+void display()
+{
+    printf("Stack element are:");
+    for(i=top;i>-1;i--)
+      printf("\t%d",stack[i]);
+    menu();
+}
+int main()
+{
+   int n;
+   printf("Enter the size:");
+   scanf("%d",&n);
+   menu();
+   return 0;
+}
+void menu()
+{
+int choice;
+printf("\n1.push\n2.pop\n3.peek\n4.display\nEnter your choice:");
+scanf("%d",&ch);
+switch(ch)
+{
+case 1:Push();
+       break;
+case 2:Pop();
+       break;
+case 3:peek();
+       break;
+case 4:display();
+       break;
+}
+}
+
+
+   
+   
+   
